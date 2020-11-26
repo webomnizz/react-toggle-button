@@ -1,22 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
+import ToggleButton from './components/ToggleButton'
+
+const Checked = () => <>🤪</>;
+const UnChecked = () => <>🙂</>;
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>Toggle Button</p>
+        <ToggleButton />
+        <br/>
+        <p>Disabled Toggle Button</p>
+        <ToggleButton onChange={state => console.log(state)} disabled={true} />
+        <br/>
+        <p>Toggle Button - Default Value TRUE</p>
+        <ToggleButton onChange={state => console.log(state)} defaultChecked={true} />
+        <br/>
+        <p>Toggle Button - Icons Change</p>
+        <ToggleButton onChange={state => console.log(state)} icons={{checked: <Checked />, unchecked: <UnChecked />}} />
       </header>
     </div>
   );
